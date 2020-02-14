@@ -2,6 +2,12 @@
 
 # Awesome Delicious
 
+To run this application:
+npm install
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+npm start or npx nodemon
+
 ## Introduction
 
 This boilerplate contains the following:
