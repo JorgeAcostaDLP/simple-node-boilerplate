@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10.15.3]
 
     steps:
       - uses: actions/checkout@v2
@@ -17,13 +17,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm run build --if-present
       - run: npm test
         env:
           CI: true
       - name: Deploy to Heroku
         env:
           HEROKU_API_TOKEN: ${{ secrets.POTATO }}
-          HEROKU_APP_NAME: 'awesome-deliciousness'
+          HEROKU_APP_NAME: 'awesomedelicious'
         if: github.ref == 'refs/heads/master' && job.status == 'success'
         run: git push https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
