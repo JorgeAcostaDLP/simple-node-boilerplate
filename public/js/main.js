@@ -73,6 +73,18 @@ window.addEventListener('load', () => {
   getReservations();
 });
 
-// $('reservation').on('click', function(e) {
-//   e.preventDefault();
-// });
+const form = $('#reservation');
+form.on('submit', submitHandler);
+
+function submitHandler(e) {
+  e.preventDefault();
+
+  $.ajax({
+    url: '/reservations',
+    type: 'POST',
+    data: form.serialize()
+  }).done(response => {
+    console.log(response);
+  });
+  getReservations();
+}
