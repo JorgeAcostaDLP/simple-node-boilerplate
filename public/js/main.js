@@ -1,12 +1,14 @@
 // jest won't error out on DOM calls.
 //console.log(document.querySelector('p').innerHTML);
+window.addEventListener('load', () => {
+  getReservations();
+});
 let previous = [];
 const getReservations = () => {
   fetch('http://localhost:3000/reservations')
     .then(response => response.json())
     .then(data => {
       let upcoming = [];
-
       data.map(el => {
         if (!previous.includes(el.id)) {
           slotSplit = el.slot.split('T');
@@ -50,7 +52,6 @@ const getReservations = () => {
               month = 'December';
               break;
           }
-
           upcoming.push(
             document.createTextNode(
               `${el.name} on ${month} ${slotDay} at ${slotSplit[1].slice(0, 5)}`
@@ -58,8 +59,6 @@ const getReservations = () => {
           );
           previous.push(el.id);
           previous.push(el.name);
-
-          console.log(previous);
         }
       });
       upcoming.map(node => {
@@ -69,10 +68,16 @@ const getReservations = () => {
       });
     });
 };
-window.addEventListener('load', () => {
-  getReservations();
-});
 
-// $('reservation').on('click', function(e) {
-//   e.preventDefault();
-// });
+const form = $('#reservation');
+form.on('submit', submitHandler);
+
+async function submitHandler(e) {
+  e.preventDefault();
+  await $.ajax({
+    url: '/reservations',
+    type: 'POST',
+    data: form.serialize()
+  });
+  location.reload();
+}
