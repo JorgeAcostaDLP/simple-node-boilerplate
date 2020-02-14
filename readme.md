@@ -1,4 +1,5 @@
 ![Node.js CI](https://github.com/JorgeAcostaDLP/simple-node-boilerplate/workflows/Node.js%20CI/badge.svg)
+
 # Awesome Delicious
 
 ## Introduction
@@ -26,13 +27,17 @@ This project uses Sequelize as an ORM. It was set up using the directions here: 
 ```javascript
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const SequelizeReservation = sequelize.define('Reservation', {
-    name: DataTypes.STRING,
-    slot: DataTypes.DATE
-  }, {});
+  const SequelizeReservation = sequelize.define(
+    'Reservation',
+    {
+      name: DataTypes.STRING,
+      slot: DataTypes.DATE,
+    },
+    {}
+  );
 
   class Reservation extends SequelizeReservation {
-    static async all(){
+    static async all() {
       return await this.findAll();
     }
   }
@@ -48,4 +53,3 @@ The Reservation class in this example allows you to define instance methods and 
 `npm test` should be all you need to run tests. This will read in and eval `utils.js` with all the functions inside of it. Try to keep DOM dependent code out of that file since jest has no DOM. `npm test` will also delete and seed the test database, and allow you to test your models. Your controllers probably wouldn't need testing in an app like this since they use the model methods for CRUD operations.
 
 For an application of this complexity ensuring that database operations through models work well is important. Models are mostly your own code.
-
