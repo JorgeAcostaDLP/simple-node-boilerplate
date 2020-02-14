@@ -17,8 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npx sequelize-cli db:migrate
-      - run: npx sequelize-cli db:seed:all
+      - run: seedTestData
       - run: npm test
         env:
           CI: true
