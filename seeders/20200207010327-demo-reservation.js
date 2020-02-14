@@ -19,6 +19,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Reservations', 'null', {});
+    return queryInterface.bulkDelete('Reservations', null, {});
   },
 };
