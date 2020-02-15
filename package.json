@@ -8,7 +8,7 @@
     "setup": "sequelize-cli db:migrate && sequelize-cli db:seed:all",
     "test": "NODE_ENV=test npm run seedTestData && npx jest",
     "lint": "eslint .",
-    "start": "npm setup && node server.js"
+    "start": "npm run setup && node server.js"
   },
   "keywords": [],
   "author": "",
