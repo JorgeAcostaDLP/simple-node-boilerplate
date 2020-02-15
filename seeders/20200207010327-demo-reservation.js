@@ -40,12 +40,6 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Not Not Not Not Not John Cena',
-        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
         name: 'Not Not Not Not Not Not John Cena',
         slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
         createdAt: new Date(),
@@ -59,6 +53,12 @@ module.exports = {
       },
       {
         name: 'Not Not Not Not Not Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not Not Not Not Not Not John Cena',
         slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
         createdAt: new Date(),
         updatedAt: new Date(),
