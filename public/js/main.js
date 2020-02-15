@@ -72,12 +72,11 @@ const getReservations = () => {
 const form = $('#reservation');
 form.on('submit', submitHandler);
 
-async function submitHandler(e) {
+function submitHandler(e) {
   e.preventDefault();
-  await $.ajax({
+  $.ajax({
     url: '/reservations',
     type: 'POST',
     data: form.serialize(),
-  });
-  location.reload();
+  }).then(location.reload());
 }
