@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 });
 let previous = [];
 const getReservations = () => {
-  fetch('http://localhost:3000/reservations')
+  fetch('/reservations')
     .then(response => response.json())
     .then(data => {
       let upcoming = [];
@@ -77,7 +77,7 @@ async function submitHandler(e) {
   await $.ajax({
     url: '/reservations',
     type: 'POST',
-    data: form.serialize()
+    data: form.serialize(),
   });
   location.reload();
 }
