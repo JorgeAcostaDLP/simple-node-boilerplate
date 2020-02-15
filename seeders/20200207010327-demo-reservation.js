@@ -5,12 +5,60 @@ module.exports = {
     return queryInterface.bulkInsert('Reservations', [
       {
         name: 'John Cena',
-        slot: new Date(Date.UTC(2020, 1, 21, 17)),
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         name: 'Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not Not Not Not John Cena',
+        slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Not Not Not Not Not Not Not Not John Cena',
         slot: new Date(Date.UTC(2020, 1, 21, 18, 30)),
         createdAt: new Date(),
         updatedAt: new Date(),
