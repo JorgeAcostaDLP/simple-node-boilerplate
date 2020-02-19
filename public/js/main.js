@@ -19,44 +19,9 @@ const getReservations = () => {
           slotSplit = el.slot.split('T');
           slotMonth = slotSplit[0].slice(5, 7);
           slotDay = slotSplit[0].slice(8, 10);
-          switch (slotMonth) {
-            case '01':
-              month = 'January';
-              break;
-            case '02':
-              month = 'February';
-              break;
-            case '03':
-              month = 'March';
-              break;
-            case '04':
-              month = 'April';
-              break;
-            case '05':
-              month = 'May';
-              break;
-            case '06':
-              month = 'June';
-              break;
-            case '07':
-              month = 'July';
-              break;
-            case '08':
-              month = 'August';
-              break;
-            case '09':
-              month = 'September';
-              break;
-            case '10':
-              month = 'October';
-              break;
-            case '11':
-              month = 'November';
-              break;
-            case '12':
-              month = 'December';
-              break;
-          }
+
+          //call to monthText util
+          month = monthText(slotMonth);
           //create nodes with date info for new reservation
           upcoming.push(
             document.createTextNode(

@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
   res.json(await Reservation.all());
 });
 
-//todo: esplit into functions for utils for front end testing
 router.post('/', async (req, res, next) => {
   let slotSplit = req.body.slot.split(':');
   //convert strings to values to avoid creating dates with strings
