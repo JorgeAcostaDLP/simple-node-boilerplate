@@ -2,16 +2,12 @@ const express = require('express');
 const router = express.Router();
 const { Reservation } = require('../../models');
 
-//get all reservations for display, they are available at /reservations
-router.get('/', async (req, res) => {
-  res.json(await Reservation.all());
-});
-
-router.post('/', async (req, res, next) => {
-  let slotSplit = req.body.slot.split(':');
-  //convert strings to values to avoid creating dates with strings
-  let month = req.body.month;
-  switch (month) {
+//helper function to change month form input into value for date creation
+function monthVal(monthInput) {
+  let month;
+  switch (monthInput) {
+    default:
+      return -1;
     case 'January':
       month = 0;
       break;
@@ -49,6 +45,20 @@ router.post('/', async (req, res, next) => {
       month = 11;
       break;
   }
+  return month;
+}
+
+//get all reservations for display, they are available at /reservations
+router.get('/', async (req, res) => {
+  res.json(await Reservation.all());
+});
+
+router.post('/', async (req, res, next) => {
+  let slotSplit = req.body.slot.split(':');
+  //convert strings to values to avoid creating dates with strings
+  let monthInput = req.body.month;
+  const month = monthVal(monthInput);
+
   //create new date (UTC works)
   //todo: add front end validations to avoid creating weird dates (month/28/29/30 or 31 possible dates... etc)
   let slot = new Date(
